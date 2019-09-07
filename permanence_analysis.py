@@ -15,15 +15,13 @@ from google.colab import drive
 drive.mount('/content/Drive2')
 
 # %cd "/content/Drive2/My Drive/BTP/"
-!ls
-
-!pip install python-igraph
 
 import igraph
 import networkx as nx
 import copy
 import random
 import matplotlib.pyplot as plt
+import pickle
 
 # forming an adjacency list for the graph - undirected graph with 0 indexed nodes
 def get_adj_list(E):
@@ -32,16 +30,16 @@ def get_adj_list(E):
 		e = E[i]
 		s = e[0]
 		t = e[1]
-		if (s - 1 in Adjacency_List.keys()):
-			Adjacency_List[s - 1].append(t - 1)
+		if (s in Adjacency_List.keys()):
+			Adjacency_List[s].append(t)
 		else:
-			Adjacency_List[s - 1] = []
-			Adjacency_List[s - 1].append(t - 1)
-		if (t - 1 in Adjacency_List.keys()):
-			Adjacency_List[t - 1].append(s - 1)
+			Adjacency_List[s] = []
+			Adjacency_List[s].append(t)
+		if (t in Adjacency_List.keys()):
+			Adjacency_List[t].append(s)
 		else:
-			Adjacency_List[t - 1] = []
-			Adjacency_List[t - 1].append(s - 1)
+			Adjacency_List[t] = []
+			Adjacency_List[t].append(s)
 	return Adjacency_List
 
 def ext_conn(comm, target, IG_edgeList):
@@ -254,18 +252,22 @@ def get_random_comm(communities):
 			index = i
 	return index
 
-graph = nx.read_gml('karate.gml', label = "id")   
+infile = open("graph", 'rb')
+lfr_graph = pickle.load(infile)
+infile.close()
+num_v = 1000
+graph = copy.deepcopy(lfr_graph)   
 
 e_ = list(graph.edges) # 1 indexed edge list (directed)
 
 Adjacency_List = get_adj_list(e_)
 
-num_vertices = 34
+num_vertices = num_v
 
 IG_edgeList = [] # 0 indexed edge list
 
 for i in e_:
-  IG_edgeList.append((i[0] - 1, i[1] - 1))
+  IG_edgeList.append((i[0], i[1]))
 
 g = igraph.Graph(directed = False) # undirected graph
 g.add_vertices(num_vertices)
@@ -282,18 +284,18 @@ NMI_List = []
 fin_mem_list = []
 for i in range(comm_length):
 
-  graph = nx.read_gml('karate.gml', label = "id")
+  graph =copy.deepcopy(lfr_graph)
 
   e_ = list(graph.edges) # 1 indexed edge list (directed)
 
   Adjacency_List = get_adj_list(e_)
 
-  num_vertices = 34
+  num_vertices = num_v
 
   IG_edgeList = [] # 0 indexed edge list
 
   for j in e_:
-    IG_edgeList.append((j[0] - 1, j[1] - 1))
+    IG_edgeList.append((j[0], j[1]))
 
   g = igraph.Graph(directed = False) # undirected graph
   g.add_vertices(num_vertices)
@@ -364,12 +366,12 @@ for i in range(comm_length):
 
   subvertices = len(target_comm)
 
-  beta = 4
+  beta = int(0.3*subvertices)
   IG_edgeList_ = perm_loss_decep(target_comm, IG_edgeList, deg, in_deg, e_max_list, comm_max_list, communities, subedge, subgraph, subvertices, beta, target_comm_index)
 
   # communities in the updated graph
-  g = igraph.Graph(directed=False)
-  num_vertices = 34
+  g = igraph.Graph(directed = False)
+  num_vertices = num_v
   g.add_vertices(num_vertices)
   g.add_edges(IG_edgeList_)
 
