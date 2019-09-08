@@ -8,20 +8,13 @@ Original file is located at
 """
 
 # Commented out IPython magic to ensure Python compatibility.
-# Load the Drive helper and mount
-from google.colab import drive
-
-# This will prompt for authorization.
-drive.mount('/content/Drive2')
-
-# %cd "/content/Drive2/My Drive/BTP/"
-!ls
 
 import igraph
 import networkx as nx
 import copy
 import random
 import matplotlib.pyplot as plt
+import pickle
 
 # forming an adjacency list for the graph - undirected graph with 0 indexed nodes
 def get_adj_list(E):
@@ -30,16 +23,16 @@ def get_adj_list(E):
 		e = E[i]
 		s = e[0]
 		t = e[1]
-		if (s - 1 in Adjacency_List.keys()):
-			Adjacency_List[s - 1].append(t - 1)
+		if (s in Adjacency_List.keys()):
+			Adjacency_List[s].append(t)
 		else:
-			Adjacency_List[s - 1] = []
-			Adjacency_List[s - 1].append(t - 1)
-		if (t - 1 in Adjacency_List.keys()):
-			Adjacency_List[t - 1].append(s - 1)
+			Adjacency_List[s] = []
+			Adjacency_List[s].append(t)
+		if (t in Adjacency_List.keys()):
+			Adjacency_List[t].append(s)
 		else:
-			Adjacency_List[t - 1] = []
-			Adjacency_List[t - 1].append(s - 1)
+			Adjacency_List[t] = []
+			Adjacency_List[t].append(s)
 	return Adjacency_List
 
 # the community deception algorithm
@@ -210,8 +203,13 @@ def vertices_in_connectedComponents(target_comm, num_vertices, Adjacency_List, n
 	return 0
 
 # reading the dataset
-graph = nx.read_gml('karate.gml', label = "id")
-graph2 = nx.read_gml('karate.gml', label = "id")
+infile = open("graph", 'rb')
+lfr_graph = pickle.load(infile)
+infile.close()
+num_v = 1000
+
+graph = copy.deepcopy(lfr_graph)
+graph2 = copy.deepcopy(lfr_graph)
 
 e_ = list(graph.edges)
 e2_ = list(graph2.edges)
@@ -222,7 +220,7 @@ Adjacency_List2 = get_adj_list(e2_)
 g = igraph.Graph(directed = False)
 g2 = igraph.Graph(directed = False)
 
-num_vertices = 34
+num_vertices = num_v
 
 g.add_vertices(num_vertices)
 g2.add_vertices(num_vertices)
@@ -230,7 +228,7 @@ g2.add_vertices(num_vertices)
 IG_edgeList = [] # 0 indexed edge list
 
 for i in e_:
-	IG_edgeList.append((i[0] - 1, i[1] - 1)) 
+	IG_edgeList.append((i[0], i[1])) 
 
 IG_edgeList2 = IG_edgeList[:] # 0 indexed edge list
 
@@ -249,8 +247,8 @@ print ()
 	
 NMI_List = []
 for i in range(comm_length):
-	graph = nx.read_gml('karate.gml', label = "id")
-	graph2 = nx.read_gml('karate.gml', label = "id")
+	graph = copy.deepcopy(lfr_graph)
+	graph2 = copy.deepcopy(lfr_graph)
 
 	e_ = list(graph.edges)
 	e2_ = list(graph2.edges)
@@ -261,7 +259,7 @@ for i in range(comm_length):
 	g = igraph.Graph(directed = False)
 	g2 = igraph.Graph(directed = False)
 
-	num_vertices = 34
+	num_vertices = num_v
 
 	g.add_vertices(num_vertices)
 	g2.add_vertices(num_vertices)
@@ -269,7 +267,7 @@ for i in range(comm_length):
 	IG_edgeList = [] # 0 indexed edge list
 
 	for j in e_:
-		IG_edgeList.append((j[0] - 1, j[1] - 1)) 
+		IG_edgeList.append((j[0], j[1])) 
 
 	IG_edgeList2 = IG_edgeList[:] # 0 indexed edge list
 
@@ -320,38 +318,19 @@ for i in range(comm_length):
 		if j[0] in target_comm and j[1] in target_comm:
 			new_edge_list.append(j)
 
-	beta = 4
+	beta = int(0.3*len(target_comm))
 	intra_considered = []
 
 	IG_edgeList_ = com_decept_safeness(target_comm, communities, IG_edgeList, beta, deg, out_deg, out_ratio, len(target_comm), new_adj, new_edge_list, intra_considered)
 
 	# communities in the updated graph
 	g = igraph.Graph(directed = False)
-	num_vertices = 34
+	num_vertices = num_v
 	g.add_vertices(num_vertices)
 	g.add_edges(IG_edgeList_)
 	communities = g.community_multilevel()
 
 	print (communities)
-  
-	before_mem = []
-	for node in target_comm:
-		for grp in range(0, len(comm_1)):
-			if node in comm_1[grp]:
-				before_mem.append(grp)
-				break
-
-	after_mem = []
-	for node in target_comm:
-		for grp in range(0, len(communities)):
-			if node in communities[grp]:
-				after_mem.append(grp)
-				break
-        
-	mem_list = []
-	for mem in after_mem:
-		if mem not in mem_list:
-				mem_list.append(mem)
 
 	# calculting the NMI score
 	nmi = igraph.compare_communities(comm_1, communities, method = "nmi")
