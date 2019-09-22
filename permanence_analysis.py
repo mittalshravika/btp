@@ -303,9 +303,8 @@ safe_copy_comm = copy.deepcopy(communities)
 
 comm_length = len(communities)
 
-fin_NMI_scores = []
 NMI_List = []
-fin_mem_list = []
+Neighbourhood_NMI_List = []
 for i in range(comm_length):
 
   graph =copy.deepcopy(lfr_graph)
@@ -410,6 +409,7 @@ for i in range(comm_length):
   print("Neighbourhood NMI : ", nmi_neighbourhood)
 
   NMI_List.append(nmi)
+  Neighbourhood_NMI_List.append(nmi_neighbourhood)
   communities = safe_copy_comm
     
 print ("Neighbourhood average:", sum(Neighbourhood_NMI_List)/len(Neighbourhood_NMI_List))
