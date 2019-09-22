@@ -252,6 +252,30 @@ def get_random_comm(communities):
 			index = i
 	return index
 
+def get_targetComm_Neighbours(target_comm, communities, Adjacency_List):
+	List = []
+	marked = dict()
+	for i in target_comm:
+		for j in Adjacency_List[i]:
+			if j not in marked:
+				for k in range(len(communities)):
+					if j in communities[k]:
+						List.append(k)
+						marked[j] = j
+	return List, marked
+
+def check_neighbours(neighbours, communities):
+	ctr = 0
+	List = []
+	for i in range(len(communities)):
+		for j in communities[i]:
+			if j in neighbours:
+				List.append(i)
+				ctr += 1
+			if ctr == len(neighbours):
+				return List
+	return List
+
 infile = open("graph", 'rb')
 lfr_graph = pickle.load(infile)
 infile.close()
@@ -303,6 +327,7 @@ for i in range(comm_length):
 
   target_comm = communities[i] # selecting a target community
   target_comm_index = i
+  pre_neighbours, neighbours = get_targetComm_Neighbours(target_comm, comm_1, Adjacency_List)
 
   # initialising degree for all the nodes in the target community
   deg = []
@@ -376,11 +401,16 @@ for i in range(comm_length):
   g.add_edges(IG_edgeList_)
 
   communities = g.community_multilevel()
+  post_neighbours = check_neighbours(neighbours, communities)
 
   # calculating the NMI score
   nmi = igraph.compare_communities(comm_1, communities, method = "nmi")
+  print ("NMI : ", nmi)
+  nmi_neighbourhood = igraph.compare_communities(pre_neighbours, post_neighbours, method = "nmi")
+  print("Neighbourhood NMI : ", nmi_neighbourhood)
 
   NMI_List.append(nmi)
   communities = safe_copy_comm
     
-print (sum(NMI_List)/len(NMI_List))
+print ("Neighbourhood average:", sum(Neighbourhood_NMI_List)/len(Neighbourhood_NMI_List))
+print ("Community average:", sum(NMI_List)/len(NMI_List))
