@@ -202,6 +202,30 @@ def vertices_in_connectedComponents(target_comm, num_vertices, Adjacency_List, n
 			return len(i)
 	return 0
 
+def get_targetComm_Neighbours(target_comm, communities, Adjacency_List):
+	List = []
+	marked = dict()
+	for i in target_comm:
+		for j in Adjacency_List[i]:
+			if j not in marked:
+				for k in range(len(communities)):
+					if j in communities[k]:
+						List.append(k)
+						marked[j] = j
+	return List, marked
+
+def check_neighbours(neighbours, communities):
+	ctr = 0
+	List = []
+	for i in range(len(communities)):
+		for j in communities[i]:
+			if j in neighbours:
+				List.append(i)
+				ctr += 1
+			if ctr == len(neighbours):
+				return List
+	return List
+
 # reading the dataset
 infile = open("graph", 'rb')
 lfr_graph = pickle.load(infile)
@@ -246,6 +270,7 @@ print (communities)
 print ()
 	
 NMI_List = []
+Neighbourhood_NMI_List = []
 for i in range(comm_length):
 	graph = copy.deepcopy(lfr_graph)
 	graph2 = copy.deepcopy(lfr_graph)
@@ -276,6 +301,7 @@ for i in range(comm_length):
 
 	target_comm = communities[i] # selecting a target community
 	target_comm2 = communities2[i]
+	pre_neighbours, neighbours = get_targetComm_Neighbours(target_comm, comm_1, Adjacency_List)
   
 	print ("Target Community - " + str(target_comm))
 
@@ -330,15 +356,17 @@ for i in range(comm_length):
 	g.add_edges(IG_edgeList_)
 	communities = g.community_multilevel()
 
-	print (communities)
-
-	# calculting the NMI score
-	nmi = igraph.compare_communities(comm_1, communities, method = "nmi")
+	post_neighbours = check_neighbours(neighbours, communities)
 	
+	nmi = igraph.compare_communities(comm_1, communities, method = "nmi")
 	print ("NMI - " + str(nmi))
 	print ()
+	nmi_neighbourhood = igraph.compare_communities(pre_neighbours, post_neighbours, method = "nmi")
+  	print("Neighbourhood NMI:", nmi_neighbourhood)
   
 	NMI_List.append(nmi)
+	Neighbourhood_NMI_List.append(nmi_neighbourhood)
 	communities = safe_copy_comm
 	
-print(sum(NMI_List)/len(NMI_List))
+print ("Neighbourhood average:", sum(Neighbourhood_NMI_List)/len(Neighbourhood_NMI_List))
+print ("Community average:", sum(NMI_List)/len(NMI_List))
