@@ -230,7 +230,7 @@ def check_neighbours(neighbours, communities):
 infile = open("graph", 'rb')
 lfr_graph = pickle.load(infile)
 infile.close()
-num_v = 1000
+num_v = 4000
 
 graph = copy.deepcopy(lfr_graph)
 graph2 = copy.deepcopy(lfr_graph)
@@ -362,7 +362,7 @@ for i in range(comm_length):
 	print ("NMI - " + str(nmi))
 	print ()
 	nmi_neighbourhood = igraph.compare_communities(pre_neighbours, post_neighbours, method = "nmi")
-  	print("Neighbourhood NMI:", nmi_neighbourhood)
+	print("Neighbourhood NMI:", nmi_neighbourhood)
   
 	NMI_List.append(nmi)
 	Neighbourhood_NMI_List.append(nmi_neighbourhood)

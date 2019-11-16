@@ -7,15 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1pXQ5cM6pPE-qSMh-QjULWl29117SFbGz
 """
 
-# Commented out IPython magic to ensure Python compatibility.
-# Load the Drive helper and mount
-from google.colab import drive
-
-# This will prompt for authorization.
-drive.mount('/content/Drive2')
-
-# %cd "/content/Drive2/My Drive/BTP/"
-
 import igraph
 import networkx as nx
 import copy
@@ -68,6 +59,7 @@ def perm_loss_decep(target_comm, IG_edgeList, deg, in_deg, e_max, comm_max, comm
 		del_loss = loss
 
 		if add_loss >= del_loss and add_loss > 0:
+			print ("Edge added - ", (add_node, add_node_2))
 			IG_edgeList.append((add_node, add_node_2))
 			ind_node = target_comm.index(add_node)
 			deg[target_comm_index][ind_node] = deg[target_comm_index][ind_node] + 1
@@ -78,6 +70,7 @@ def perm_loss_decep(target_comm, IG_edgeList, deg, in_deg, e_max, comm_max, comm
 			e_max[max_comm][ind_node_2] = e_max[max_comm][ind_node_2] + 1
 
 		elif del_loss > 0:
+			print ("Edge deleted - ", (del_node, del_node_2))
 			IG_edgeList.remove((del_node, del_node_2))
 			ind_node = target_comm.index(del_node)
 			deg[target_comm_index][ind_node] = deg[target_comm_index][ind_node] - 1
@@ -279,7 +272,7 @@ def check_neighbours(neighbours, communities):
 infile = open("graph", 'rb')
 lfr_graph = pickle.load(infile)
 infile.close()
-num_v = 1000
+num_v = 4000
 graph = copy.deepcopy(lfr_graph)   
 
 e_ = list(graph.edges) # 1 indexed edge list (directed)
@@ -299,6 +292,7 @@ g.add_edges(IG_edgeList)
 
 communities = g.community_multilevel()
 comm_1 = copy.deepcopy(communities)
+print (comm_1)
 safe_copy_comm = copy.deepcopy(communities)
 
 comm_length = len(communities)
@@ -327,6 +321,8 @@ for i in range(comm_length):
   target_comm = communities[i] # selecting a target community
   target_comm_index = i
   pre_neighbours, neighbours = get_targetComm_Neighbours(target_comm, comm_1, Adjacency_List)
+  
+  print ("Target Community - ", target_comm)
 
   # initialising degree for all the nodes in the target community
   deg = []
@@ -400,6 +396,7 @@ for i in range(comm_length):
   g.add_edges(IG_edgeList_)
 
   communities = g.community_multilevel()
+  print (communities)
   post_neighbours = check_neighbours(neighbours, communities)
 
   # calculating the NMI score

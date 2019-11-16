@@ -1,0 +1,341 @@
+mu_graph -  graph_mu_1
+NMI -  0.9950658643124318
+Neighbourhood NMI -  0.3176818879708833
+Community splits -  3
+Uniformity -  0.2873643046809562
+NMI -  0.9434592252244719
+Neighbourhood NMI -  0.30774956766508743
+Community splits -  3
+Uniformity -  0.7434286841756148
+NMI -  0.9980089437893216
+Neighbourhood NMI -  0.4501233493660763
+Community splits -  1
+Uniformity -  2.995732273553991
+NMI -  1.0
+Neighbourhood NMI -  0.21621406120303596
+Community splits -  1
+Uniformity -  4.644390899141372
+NMI -  0.9002135225122079
+Neighbourhood NMI -  0.2907856116825515
+Community splits -  4
+Uniformity -  1.111199334472651
+NMI -  1.0
+Neighbourhood NMI -  0.25029720162645147
+Community splits -  1
+Uniformity -  4.574710978503383
+NMI -  0.9537073131180299
+Neighbourhood NMI -  0.5351536097856164
+Community splits -  1
+Uniformity -  4.532599493153256
+NMI -  0.9705758809759188
+Neighbourhood NMI -  0.458280176501751
+Community splits -  2
+Uniformity -  0.6434915530192904
+NMI -  1.0
+Neighbourhood NMI -  0.35445633104727486
+Community splits -  1
+Uniformity -  3.610917912644225
+NMI -  0.9423740440842414
+Neighbourhood NMI -  0.3217198198048994
+Community splits -  3
+Uniformity -  0.7188784762889504
+NMI -  0.9369083845076616
+Neighbourhood NMI -  0.27717833139121417
+Community splits -  2
+Uniformity -  0.5982695885852573
+NMI -  0.9892916177832953
+Neighbourhood NMI -  0.3415253875224387
+Community splits -  1
+Uniformity -  4.465908118654583
+NMI -  0.9980089437893216
+Neighbourhood NMI -  0.5154494896189507
+Community splits -  1
+Uniformity -  2.564949357461537
+NMI -  0.988463108413334
+Neighbourhood NMI -  0.3814233330023798
+Community splits -  1
+Uniformity -  4.356708826689594
+NMI -  0.9523831495116198
+Neighbourhood NMI -  0.40864950140861
+Community splits -  1
+Uniformity -  4.828313737302302
+NMI -  0.9197257582048142
+Neighbourhood NMI -  0.28860391033951777
+Community splits -  3
+Uniformity -  1.0441760637099335
+NMI -  0.9790007799027791
+Neighbourhood NMI -  0.2765311596869119
+Community splits -  1
+Uniformity -  4.779123493111529
+NMI -  0.9649555117715429
+Neighbourhood NMI -  0.38980635195943575
+Community splits -  1
+Uniformity -  4.736198448394495
+NMI -  1.0
+Neighbourhood NMI -  0.5928001538111949
+Community splits -  1
+Uniformity -  2.484906649788001
+NMI -  0.9910653181824871
+Neighbourhood NMI -  0.4852168715152388
+Community splits -  1
+Uniformity -  4.5849674786705705
+Neighbourhood average -  0.37298230534547605
+Community average -  0.9711603683041737
+Community split average -  1.65
+Community uniformity -  2.9153117836000746
+mu_graph -  graph_mu_2
+NMI -  0.6606601745430416
+Neighbourhood NMI -  0.11684190500781176
+Community splits -  4
+Uniformity -  0.7476741266536414
+NMI -  0.6682433620082742
+Neighbourhood NMI -  0.10248593858850162
+Community splits -  6
+Uniformity -  1.3673607857335075
+NMI -  0.6856624428449993
+Neighbourhood NMI -  0.1047382012438444
+Community splits -  8
+Uniformity -  1.5453754730728226
+NMI -  0.7288109337793084
+Neighbourhood NMI -  0.11182102307914689
+Community splits -  6
+Uniformity -  1.1619677140608462
+NMI -  0.6488448866468965
+Neighbourhood NMI -  0.13284354193656883
+Community splits -  5
+Uniformity -  0.9868563993665102
+NMI -  0.7300701498180673
+Neighbourhood NMI -  0.1245810002260352
+Community splits -  1
+Uniformity -  5.32300997913841
+NMI -  0.6807841140260866
+Neighbourhood NMI -  0.14353611544304257
+Community splits -  4
+Uniformity -  0.9523677558430679
+NMI -  0.7075264111787928
+Neighbourhood NMI -  0.13440324741544732
+Community splits -  1
+Uniformity -  4.219507705176109
+NMI -  0.9000338985050396
+Neighbourhood NMI -  0.23832629133992259
+Community splits -  1
+Uniformity -  4.510859506516851
+NMI -  0.7562820475926044
+Neighbourhood NMI -  0.25837273931362176
+Community splits -  1
+Uniformity -  2.9444389791664403
+Neighbourhood average -  0.1467950003593943
+Community average -  0.716691842094311
+Community split average -  3.7
+Community uniformity -  2.375941842472821
+mu_graph -  graph_mu_3
+NMI -  0.6155943317550611
+Neighbourhood NMI -  0.09314881717757002
+Community splits -  4
+Uniformity -  0.616309726325614
+NMI -  0.5118842392006001
+Neighbourhood NMI -  0.08037977685518861
+Community splits -  6
+Uniformity -  1.2163842882460951
+NMI -  0.6395917514092034
+Neighbourhood NMI -  0.10654728457143525
+Community splits -  6
+Uniformity -  1.4841446737729196
+NMI -  0.477202707228592
+Neighbourhood NMI -  0.08405815518461322
+Community splits -  7
+Uniformity -  1.5680568316683243
+NMI -  0.5415348171543776
+Neighbourhood NMI -  0.0848583484982922
+Community splits -  6
+Uniformity -  1.5601439694724863
+NMI -  0.6334835751952458
+Neighbourhood NMI -  0.09802467634283012
+Community splits -  4
+Uniformity -  1.0956203719509552
+NMI -  0.7816365334250047
+Neighbourhood NMI -  0.06554824121876271
+Community splits -  8
+Uniformity -  1.182356177456482
+NMI -  0.5370321448445429
+Neighbourhood NMI -  0.08584853324383357
+Community splits -  3
+Uniformity -  0.3887343902209295
+NMI -  0.810332379219792
+Neighbourhood NMI -  0.10461289844488421
+Community splits -  3
+Uniformity -  0.6915021980540987
+Neighbourhood average -  0.08922519239304555
+Community average -  0.6164769421591577
+Community split average -  5.222222222222222
+Community uniformity -  1.089250291907545
+mu_graph -  graph_mu_4
+NMI -  0.3701393413619055
+Neighbourhood NMI -  0.06338220287371735
+Community splits -  6
+Uniformity -  1.4290609622616788
+NMI -  0.4336943585803668
+Neighbourhood NMI -  0.06900882121968972
+Community splits -  6
+Uniformity -  1.4079468045307735
+NMI -  0.2517946271349803
+Neighbourhood NMI -  0.04670321581007353
+Community splits -  6
+Uniformity -  1.4221362975290521
+NMI -  0.5024503791844794
+Neighbourhood NMI -  0.05082951924907282
+Community splits -  3
+Uniformity -  0.36097243187684863
+NMI -  0.2632942230323714
+Neighbourhood NMI -  0.05473882958434879
+Community splits -  6
+Uniformity -  1.2529601969333195
+NMI -  0.552932876489859
+Neighbourhood NMI -  0.053554240112070016
+Community splits -  6
+Uniformity -  1.4859018353666258
+Neighbourhood average -  0.0563694714748287
+Community average -  0.39571763429732704
+Community split average -  5.5
+Community uniformity -  1.226496421416383
+mu_graph -  graph_mu_5
+NMI -  0.24993998742113926
+Neighbourhood NMI -  0.04388333683882348
+Community splits -  5
+Uniformity -  1.253850750556414
+NMI -  0.34842009367735954
+Neighbourhood NMI -  0.04001709394644979
+Community splits -  5
+Uniformity -  1.0073297878806244
+NMI -  0.18182377568275315
+Neighbourhood NMI -  0.05056041540887826
+Community splits -  6
+Uniformity -  1.387966925911635
+NMI -  0.2720512199911222
+Neighbourhood NMI -  0.04543432554012274
+Community splits -  5
+Uniformity -  0.9078297324320093
+NMI -  0.2060253434894141
+Neighbourhood NMI -  0.047659418795833575
+Community splits -  5
+Uniformity -  1.4153623319730038
+NMI -  0.2344860432983227
+Neighbourhood NMI -  0.03805876043133047
+Community splits -  5
+Uniformity -  1.0892479662896788
+Neighbourhood average -  0.04426889182690639
+Community average -  0.2487910772600185
+Community split average -  5.166666666666667
+Community uniformity -  1.1769312491738941
+mu_graph -  graph_mu_6
+NMI -  0.3832920900124248
+Neighbourhood NMI -  0.026718970049084703
+Community splits -  4
+Uniformity -  1.2130075659799042
+NMI -  0.24257416052164954
+Neighbourhood NMI -  0.02400164523893253
+Community splits -  4
+Uniformity -  1.3108242905080958
+NMI -  0.14508978021121421
+Neighbourhood NMI -  0.02197452447759088
+Community splits -  5
+Uniformity -  1.34494448350286
+NMI -  0.17291632136015042
+Neighbourhood NMI -  0.037801741855696035
+Community splits -  5
+Uniformity -  1.0955643071450263
+NMI -  0.10669731601271298
+Neighbourhood NMI -  0.03496054986443337
+Community splits -  5
+Uniformity -  1.1306292632058494
+NMI -  0.14291719922255833
+Neighbourhood NMI -  0.0682513259686294
+Community splits -  2
+Uniformity -  0.6365141682948128
+Neighbourhood average -  0.035618126242394486
+Community average -  0.1989144778901184
+Community split average -  4.166666666666667
+Community uniformity -  1.1219140131060914
+mu_graph -  graph_mu_7
+NMI -  0.027290472244628716
+Neighbourhood NMI -  0.03684262839672366
+Community splits -  7
+Uniformity -  1.497123832345392
+NMI -  0.06744238466009785
+Neighbourhood NMI -  0.03092631181881628
+Community splits -  4
+Uniformity -  1.3571232774244646
+NMI -  0.033185512746847376
+Neighbourhood NMI -  0.031891378412991576
+Community splits -  7
+Uniformity -  1.443235257417087
+NMI -  0.09136829851752827
+Neighbourhood NMI -  0.013093398270788753
+Community splits -  5
+Uniformity -  1.4706922043941795
+NMI -  0.03878340002242542
+Neighbourhood NMI -  0.06659790830993444
+Community splits -  1
+Uniformity -  5.733341276897745
+Neighbourhood average -  0.03587032504185095
+Community average -  0.05161401363830552
+Community split average -  4.8
+Community uniformity -  2.3003031696957734
+mu_graph -  graph_mu_8
+NMI -  0.0533812728233438
+Neighbourhood NMI -  0.037167643516651756
+Community splits -  6
+Uniformity -  1.336768355262331
+NMI -  0.03910340246263993
+Neighbourhood NMI -  0.033526620405801635
+Community splits -  6
+Uniformity -  1.498126409800903
+NMI -  0.0562638827685277
+Neighbourhood NMI -  0.031912302320203784
+Community splits -  6
+Uniformity -  1.4423796102362003
+NMI -  0.15092453173837822
+Neighbourhood NMI -  0.02387731933719236
+Community splits -  6
+Uniformity -  1.5099713634179501
+NMI -  0.162144720222941
+Neighbourhood NMI -  0.004267890770256662
+Community splits -  4
+Uniformity -  1.2231931462406396
+NMI -  0.2480153106355006
+Neighbourhood NMI -  0.06137310361119134
+Community splits -  2
+Uniformity -  0.6365141682948128
+Neighbourhood average -  0.032020813326882926
+Community average -  0.11830552010855522
+Community split average -  5.0
+Community uniformity -  1.2744921755421394
+mu_graph -  graph_mu_9
+NMI -  0.026117803421882465
+Neighbourhood NMI -  0.028633015321091037
+Community splits -  6
+Uniformity -  1.5255442626517157
+NMI -  0.10193969836194593
+Neighbourhood NMI -  0.017365815840456208
+Community splits -  6
+Uniformity -  1.4422270592382769
+NMI -  0.0187193959529425
+Neighbourhood NMI -  0.029235507150967035
+Community splits -  5
+Uniformity -  1.4151696125116322
+NMI -  0.03610113890707696
+Neighbourhood NMI -  0.03259459909319328
+Community splits -  6
+Uniformity -  1.3112897361223206
+NMI -  0.08143238393143275
+Neighbourhood NMI -  0.017600219538434776
+Community splits -  4
+Uniformity -  1.2968916284109153
+NMI -  0.2089172825009278
+Neighbourhood NMI -  0.023221457977248793
+Community splits -  4
+Uniformity -  1.2206072645530173
+Neighbourhood average -  0.02477510248689852
+Community average -  0.07887128384603474
+Community split average -  5.166666666666667
+Community uniformity -  1.3686215939146464
